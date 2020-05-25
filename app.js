@@ -16,7 +16,7 @@ function loadCharts(){
     ['Pepperoni', 2]
   ];
   drawChart("Datos de ....","estos es...","Topping","Slices", data,"Bar" ,1);
-  drawChart("Datos de ....","estos es...","Topping","Slices", data,"Pie" ,1);
+  drawChart("Datos de ....","estos es...","Topping","Slices", data,"Pie" ,2);
 }
 
 
@@ -32,7 +32,8 @@ function drawChart(title, resume, name, value, dataTable, type, id) {
                  'width':500,
                  'height':300};
   
-  var div = document.createElement("div"+id);
+  var div = document.createElement("div");
+  div.className  = "divInfo";  
   document.getElementById("container").appendChild(div);
   var chart = null;
   // Instantiate and draw our chart, passing in some options. 
