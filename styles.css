@@ -1,7 +1,35 @@
 #container{
     text-align: center;
+    align-items: center;
+    display: block;
 }
 
-.classInfo{
+.div-center{
     margin:0px auto;
+}
+
+.card{
+    width: 1000px !important;
+    margin-top: 20px;
+    border-color: rgb(23, 23, 24) !important;
+}
+
+.div-table {
+    float: left;
+    margin-left: 50px;
+}
+
+.div-chart{
+    float: right;
+    margin-right: 30px;
+}
+
+.div-summary{
+    display: block;
+    font-size: 20px;
+}
+.card-header{
+    color:white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
 }

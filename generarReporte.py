@@ -2,11 +2,15 @@
 #-*- coding: utf-8-*-
 #23/05/2020
 #Proyecto Final Linux 1
+#=======================================
 #Ingenieria de sistemas y computación
 #Universidad del Quindío
 #Juan Manuel Giraldo Rios
 #Ivan Santiago Castañeda Henao
+#Jhon Nicolay Mejia
+#Diego Armando
 #Licencia GNU
+#======================================
 
 import os
 import sys
