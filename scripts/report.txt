@@ -1,0 +1,48 @@
+Información de Disco Duro
+Se muestra Información del disco duro
+Nombre del disco
+Espacio
+PIE
+Espacio Total
+16020
+Espacio en Uso
+3709
+Espacio Libre
+11529
+fin
+Información de Disco Duro
+Se muestra Información del disco duro
+Nombre del disco
+Espacio
+BAR
+Espacio Total
+16020
+Espacio en Uso
+3709
+Espacio Libre
+11529
+fin
+Información de Disco Duro
+Se muestra Información del disco duro
+Nombre del disco
+Espacio
+SCATTER
+Espacio Total
+16020
+Espacio en Uso
+3709
+Espacio Libre
+11529
+fin
+Información de Disco Duro
+Se muestra Información del disco duro
+Nombre del disco
+Espacio
+AREA
+Espacio Total
+16020
+Espacio en Uso
+3709
+Espacio Libre
+11529
+fin

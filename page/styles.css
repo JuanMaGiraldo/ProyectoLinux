@@ -27,9 +27,11 @@
 .div-summary{
     display: block;
     font-size: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
 }
 .card-header{
     color:white;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 25px;
 }

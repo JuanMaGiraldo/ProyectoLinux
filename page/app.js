@@ -8,22 +8,27 @@ google.charts.setOnLoadCallback(loadCharts);
 // instantiates the pie chart, passes in the data and
 // draws it.
 function loadCharts(){
-  data= [
-    ['Mushrooms', 3],
-    ['Onions', 1],
-    ['Olives', 1],
-    ['Zucchini', 1],
-    ['Pepperoni', 2]
-  ];
+  text = readTextFile("../scripts/report.txt")
+  removeItem(text,"");
+  removeItem(text,"\n");
+  while(text.length != 0){
+    text = getData(text);
+  }  
+}
 
-  title = "Titulo";
-  summary = "Resumen del script";
-  name = "Topping";
-  value = "Slices";
-  type = "Pie";
-
+function getData(text){
+  title = text.shift();
+  summary = text.shift();
+  name = text.shift();
+  value = text.shift();
+  type = text.shift();
+  data = []
+  while(text[0] != "fin"){
+    data.push([text.shift(),parseFloat(text.shift())]);
+  }  
   createDivInfo(title,summary,name, value, data,type);
-  createDivInfo(title,summary,name, value, data,"Bar");
+  text.shift();
+  return text;
 }
 
 function createDivInfo(title,summary,name, value, data,type){
@@ -138,11 +143,42 @@ function createTable(name, value, dataTable,div){
   table.appendChild(tbdy);
   div.appendChild(table);
 } 
+
 function createTd(value){
   td = createElement("td");
   td.innerHTML = value;
   return td;
 }
+
 function createElement(element){
   return document.createElement(element);
+}
+
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    var allText;
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                allText = rawFile.responseText;
+            }
+        }
+    }
+    rawFile.send(null);
+    return allText.split("\n");
+}
+
+function removeItem(array, item) {
+  var i = array.length;
+
+  while (i--) {
+      if (array[i] === item) {
+          array.splice(array.indexOf(item), 1);
+      }
+  }
 }
