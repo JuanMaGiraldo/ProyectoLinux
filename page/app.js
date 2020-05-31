@@ -1,19 +1,19 @@
-// Load the Visualization API and the corechart package.
+
+data = null;
+function loadInfo(text){
+  data = text.split("\n");
+  removeItem(data,"");
+  removeItem(data,"\n");
+   // Load the Visualization API and the corechart package.
 google.charts.load('current', {'packages':['corechart']});
 
 // Set a callback to run when the Google Visualization API is loaded.
 google.charts.setOnLoadCallback(loadCharts);
-
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
+}
 function loadCharts(){
-  text = readTextFile("../scripts/report.txt")
-  removeItem(text,"");
-  removeItem(text,"\n");
-  while(text.length != 0){
-    text = getData(text);
-  }  
+  while(data.length != 0){
+    data = getData(data);
+  } 
 }
 
 function getData(text){
@@ -90,8 +90,6 @@ function createCard(title, summary){
   divTable.className = "div-table";
   var divChart = createDiv();
   divChart.className = "div-chart";
-
-  
   
   divBody.appendChild(divTable);
   divBody.appendChild(divChart); 
@@ -164,6 +162,7 @@ function createElement(element){
 
 function readTextFile(file)
 {
+
     var rawFile = new XMLHttpRequest();
     var allText;
     rawFile.open("GET", file, false);
@@ -177,8 +176,10 @@ function readTextFile(file)
             }
         }
     }
+
     rawFile.send(null);
-    return allText.split("\n");
+    
+    
 }
 
 function removeItem(array, item) {
