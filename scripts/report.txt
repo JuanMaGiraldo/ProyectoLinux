@@ -1,0 +1,48 @@
+Información de Disco Duro
+Se muestra Información del disco duro
+Magnitud
+Valor en MB
+Bar
+Espacio Total
+16020
+Espacio en Uso
+2140
+Espacio Libre
+13322
+fin
+Información de Memoria RAM
+Se muestra Información de la memoria RAM
+Magnitud
+Valor en KB
+Area
+SwapFree:
+4882428
+SwapTotal:
+4882428
+Mlocked:
+80
+Unevictable:
+80
+Inactive(file):
+1066676
+Active(file):
+594328
+Inactive(anon):
+297548
+Active(anon):
+1826056
+Inactive:
+1364224
+Active:
+2420384
+SwapCached:
+0
+Cached:
+1724044
+Buffers:
+204736
+MemAvailable:
+13642052
+MemFree:
+12180840
+fin

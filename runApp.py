@@ -25,7 +25,6 @@ def ejecutarComando ( comando ):
 	return [ p.stdout.read().decode(), p.stderr.read().decode() ]
 
 ejecutarComando("cd scripts && ./generarReporte.py")
-print("ejecutado")
 ejecutarComando("cd page && wkhtmltopdf index.html reporte.pdf")
 filename="page/reporte.pdf"
 plot = subprocess.Popen("evince '%s'" % filename, shell=True)
