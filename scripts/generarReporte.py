@@ -17,6 +17,7 @@ import sys
 import subprocess
 import re
 
+
 def getData(comand, n):
 	subProcess = subprocess.Popen (comand,
 			stdout=subprocess.PIPE,
@@ -49,10 +50,10 @@ def addMemoryHDD(info):
 
 def addProcess(info):
 	process = []
-	process.append("Información de consumo de recursos\n")
-	process.append("Se muestra información del proceso con PID " + str(info[0]) + "\n")
+	process.append("Información de consumo de recursos del proceso "+ info[11] +"\n")
+	process.append("Se muestra información del proceso con PID " + str(info[0]) +"\n")
 	process.append("Recurso\n")
-	process.append("Valor\n")
+	process.append("Valor en kb\n")
 	process.append("Pie\n")
 	process.append("Memoria Virtual\n")
 	process.append(str(info[4])+"\n")
@@ -90,6 +91,10 @@ def writeReport(data):
 		i=i+1
 	report.close()
 
+def escape_ansi(line):
+    ansi_escape = re.compile(r'(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]')
+    return ansi_escape.sub('', line)
+
 #-------------------------------------------------------------------------#
 
 data = []
@@ -97,14 +102,19 @@ data = []
 infoMem = getData("free -m", 1)
 info = infoMem.split(" ")
 data.append(addMemoryHDD(info))
-"""
+
 n=3
 while (n>0):
-	infoPro = getData("top -n1", n)
+	infoPro = getData("top -n1", n+6)	
+	infoPro = escape_ansi(infoPro)	
 	info = infoPro.split(" ")
+	info.pop(0)
+	info.pop(len(info) -1)
+	print(info)
+	
 	data.append(addProcess(info))
 	n = n-1
-"""
+
 n=15
 info2 = []
 while (n>0):
@@ -118,4 +128,4 @@ data.append(addMemoryRAM(info2))
 
 writeReport(data)
 
-print("Se ejecutó con éxito")
+

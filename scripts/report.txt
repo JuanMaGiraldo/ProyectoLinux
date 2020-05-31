@@ -6,9 +6,57 @@ Bar
 Espacio Total
 16020
 Espacio en Uso
-2140
+3118
 Espacio Libre
-13322
+12360
+fin
+Información de consumo de recursos del proceso Xorg
+Se muestra información del proceso con PID 1244
+Recurso
+Valor
+Pie
+Memoria Virtual
+4000088
+Memoria RAM
+180856
+Memoria Compartida
+134292
+Uso de CPU
+5,9
+Espacio en DD
+1,1
+fin
+Información de consumo de recursos del proceso code
+Se muestra información del proceso con PID 2386
+Recurso
+Valor
+Pie
+Memoria Virtual
+12,137g
+Memoria RAM
+325116
+Memoria Compartida
+102376
+Uso de CPU
+5,9
+Espacio en DD
+2,0
+fin
+Información de consumo de recursos del proceso anydesk
+Se muestra información del proceso con PID 3909
+Recurso
+Valor
+Pie
+Memoria Virtual
+2911368
+Memoria RAM
+234976
+Memoria Compartida
+62884
+Uso de CPU
+6,2
+Espacio en DD
+1,4
 fin
 Información de Memoria RAM
 Se muestra Información de la memoria RAM
@@ -24,25 +72,25 @@ Mlocked:
 Unevictable:
 80
 Inactive(file):
-1066676
+1235464
 Active(file):
-594328
+866344
 Inactive(anon):
-297548
+337284
 Active(anon):
-1826056
+2632040
 Inactive:
-1364224
+1572748
 Active:
-2420384
+3498384
 SwapCached:
 0
 Cached:
-1724044
+2107340
 Buffers:
-204736
+233156
 MemAvailable:
-13642052
+12706996
 MemFree:
-12180840
+10796656
 fin

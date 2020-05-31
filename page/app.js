@@ -112,7 +112,7 @@ function createTable(name, value, dataTable,div){
   table.className = "table";
   //create header
   var header = createElement('thead');
-  header.className = "thead-dark";
+  header.className = "header-dark";
   var trHeader = createElement("tr");
 
   var top = ["#",name,value];
