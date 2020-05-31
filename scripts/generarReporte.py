@@ -66,8 +66,7 @@ def addProcess(info):
 	process.append("Espacio en DD\n")
 	process.append(str(info[9])+"\n")
 	process.append("fin\n")
-	return process
-
+	return process	
 
 def addMemoryRAM(info):
 	memory = []
@@ -95,10 +94,10 @@ def escape_ansi(line):
     ansi_escape = re.compile(r'(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]')
     return ansi_escape.sub('', line)
 
+
 #-------------------------------------------------------------------------#
 
 data = []
-
 infoMem = getData("free -m", 1)
 info = infoMem.split(" ")
 data.append(addMemoryHDD(info))
