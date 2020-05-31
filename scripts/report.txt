@@ -6,54 +6,9 @@ Bar
 Espacio Total
 985
 Espacio en Uso
-749
+585
 Espacio Libre
-208
-fin
-Información de consumo de recursosSe muestra información del proceso con PID KiB
-Recurso
-Valor
-Pie
-Memoria Virtual
-(B[m[39;49mtotal,(B[m[39;49m[1m
-Memoria RAM
-66348
-Memoria Compartida
-(B[m[39;49mlibre,(B[m[39;49m[1m
-Uso de CPU
-(B[m[39;49musado,(B[m[39;49m[1m
-Espacio en DD
-174312
-fin
-Información de consumo de recursosSe muestra información del proceso con PID %Cpu(s):(B[m[39;49m[1m
-Recurso
-Valor
-Pie
-Memoria Virtual
-(B[m[39;49msist,(B[m[39;49m[1m
-Memoria RAM
-0,0
-Memoria Compartida
-(B[m[39;49madecuado,(B[m[39;49m[1m
-Uso de CPU
-(B[m[39;49minact,(B[m[39;49m[1m
-Espacio en DD
-0,1
-fin
-Información de consumo de recursosSe muestra información del proceso con PID Tareas:(B[m[39;49m[1m
-Recurso
-Valor
-Pie
-Memoria Virtual
-(B[m[39;49mejecutar,
-Memoria RAM
-(B[m[39;49m[1m
-Memoria Compartida
-115
-Uso de CPU
-(B[m[39;49m[1m
-Espacio en DD
-0
+253
 fin
 Información de Memoria RAM
 Se muestra Información de la memoria RAM
@@ -61,33 +16,33 @@ Magnitud
 Valor en KB
 Area
 SwapFree:
-394368
+865064
 SwapTotal:
 871988
 Mlocked:
-16
+0
 Unevictable:
-16
+0
 Inactive(file):
-170824
+113932
 Active(file):
-92252
+122992
 Inactive(anon):
-361216
+165708
 Active(anon):
-195168
+344172
 Inactive:
-532040
+279640
 Active:
-287420
+467164
 SwapCached:
-10104
+640
 Cached:
-140456
+201612
 Buffers:
-12240
+40992
 MemAvailable:
-212952
+260084
 MemFree:
-66580
+134868
 fin

@@ -49,7 +49,7 @@ def addMemoryHDD(info):
 
 def addProcess(info):
 	process = []
-	process.append("Información de consumo de recursos")
+	process.append("Información de consumo de recursos\n")
 	process.append("Se muestra información del proceso con PID " + str(info[0]) + "\n")
 	process.append("Recurso\n")
 	process.append("Valor\n")
@@ -97,14 +97,14 @@ data = []
 infoMem = getData("free -m", 1)
 info = infoMem.split(" ")
 data.append(addMemoryHDD(info))
-
+"""
 n=3
 while (n>0):
 	infoPro = getData("top -n1", n)
 	info = infoPro.split(" ")
 	data.append(addProcess(info))
 	n = n-1
-
+"""
 n=15
 info2 = []
 while (n>0):
