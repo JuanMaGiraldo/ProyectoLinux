@@ -89,7 +89,7 @@ function createCard(title, summary){
   var divTable = createDiv();
   divTable.className = "div-table";
   var divChart = createDiv();
-  divChart.className = "div-chart"
+  divChart.className = "div-chart";
 
   
   
