@@ -133,19 +133,21 @@ def escape_ansi(line):
 #-------------------------------------------------------------------------#
 
 data = []
+
+infoHDD = getData("df --total -m |tail -1", 0)
+info = infoHDD.split(" ")
+data.append(addMemoryHDD(info))
+
+
+for n in range(0, 5):
+        infoHDD = getData("df -m |grep ^/dev",n)
+        info = infoHDD.split(" ")
+        data.append(addMemoryHDD_2(info))
+
+
 infoMem = getData("free -m", 1)
 info = infoMem.split(" ")
 data.append(addMemoryRAM(info))
-
-n=3
-while (n>0):
-	infoPro = getData("top -n1", n+6)
-	infoPro = escape_ansi(infoPro)
-	info = infoPro.split(" ")
-	info.pop(0)
-	info.pop(len(info) -1)
-	data.append(addProcess(info))
-	n = n-1
 
 n=15
 info2 = []
@@ -155,19 +157,18 @@ while (n>0):
 	info2.append(info[0])
 	info2.append(info[1])
 	n = n-1
-
 data.append(addMemoryRAM_2(info2))
 
 
-infoHDD = getData("df --total -m |tail -1", 0)
-info = infoHDD.split(" ")
-data.append(addMemoryHDD(info))
-
-
-for n in range(0, 5):
-	infoHDD = getData("df -m |grep ^/dev",n)
-	info = infoHDD.split(" ")
-	data.append(addMemoryHDD_2(info))
+n=3
+while (n>0):
+        infoPro = getData("top -n1", n+6)
+        infoPro = escape_ansi(infoPro)
+        info = infoPro.split(" ")
+        info.pop(0)
+        info.pop(len(info) -1)
+        data.append(addProcess(info))
+        n = n-1
 
 
 writeReport(data)
