@@ -32,9 +32,9 @@ def getData(comand, n):
 
 
 
-def addMemoryHDD(info):
+def addMemoryRAM(info):
 	memory = []
-	memory.append("Información de Disco Duro\n")
+	memory.append("Información general de Memoria RAM\n")
 	memory.append("Se muestra Información del disco duro\n")
 	memory.append("Magnitud\n")
 	memory.append("Valor en MB\n")
@@ -47,6 +47,53 @@ def addMemoryHDD(info):
 	memory.append(str(info[6]))
 	memory.append("fin\n")
 	return memory
+
+
+def addMemoryRAM_2(info):
+	memory = []
+	memory.append("Información detallada de Memoria RAM\n")
+	memory.append("Se muestra Información de la memoria RAM\n")
+	memory.append("Magnitud\n")
+	memory.append("Valor en KB\n")
+	memory.append("Area\n")
+	for i in info:
+		memory.append(str(i)+"\n")
+	memory.append("fin\n")
+	return memory
+
+
+def addMemoryHDD(info):
+	memory =[]
+	memory.append("Información general del Disco Duro\n")
+	memory.append("Se muestra infromación del Disco Duro\n")
+	memory.append("Magnitud\n")
+	memory.append("Valor en MB\n")
+	memory.append("Bar\n")
+	memory.append("Tamaño total\n")
+	memory.append(str(info[1])+"\n")
+	memory.append("Usado\n")
+	memory.append(str(info[2])+"\n")
+	memory.append("Disponible")
+	memory.append(str(info[3])+"\n")
+	memory.append("fin\n")
+	return memory
+
+def addMemoryHDD_2(info):
+	memory = []
+	memory.append("Información detallada del Disco Duro\n")
+	memory.append("Se muestra información de "+str(info[0]+"\n"))
+	memory.append("Magnitud\n")
+	memory.append("Valor en MB\n")
+	memory.append("Area\n")
+	memory.append("Tamaño\n")
+	memory.append(str(info[1])+"\n")
+	memory.append("Usado\n")
+	memory.append(str(info[2])+"\n")
+	memory.append("Disponible")
+	memory.append(str(info[3])+"\n")
+	memory.append("fin\n")
+	return memory
+
 
 def addProcess(info):
 	process = []
@@ -69,19 +116,6 @@ def addProcess(info):
 	return process
 
 
-def addMemoryRAM(info):
-	memory = []
-	memory.append("Información de Memoria RAM\n")
-	memory.append("Se muestra Información de la memoria RAM\n")
-	memory.append("Magnitud\n")
-	memory.append("Valor en KB\n")
-	memory.append("Area\n")
-	for i in info:
-		memory.append(str(i)+"\n")
-	memory.append("fin\n")
-	return memory
-
-
 def writeReport(data):
 	report = open("./report.txt","w", encoding="utf-8")
 	i=0
@@ -90,6 +124,7 @@ def writeReport(data):
 			report.write(line)
 		i=i+1
 	report.close()
+
 
 def escape_ansi(line):
     ansi_escape = re.compile(r'(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]')
@@ -101,17 +136,15 @@ data = []
 
 infoMem = getData("free -m", 1)
 info = infoMem.split(" ")
-data.append(addMemoryHDD(info))
+data.append(addMemoryRAM(info))
 
 n=3
 while (n>0):
-	infoPro = getData("top -n1", n+6)	
-	infoPro = escape_ansi(infoPro)	
+	infoPro = getData("top -n1", n+6)
+	infoPro = escape_ansi(infoPro)
 	info = infoPro.split(" ")
 	info.pop(0)
 	info.pop(len(info) -1)
-	print(info)
-	
 	data.append(addProcess(info))
 	n = n-1
 
@@ -124,8 +157,19 @@ while (n>0):
 	info2.append(info[1])
 	n = n-1
 
-data.append(addMemoryRAM(info2))
+data.append(addMemoryRAM_2(info2))
+
+
+infoHDD = getData("df --total -m |tail -1", 0)
+info = infoHDD.split(" ")
+data.append(addMemoryHDD(info))
+
+
+for n in range(0, 5):
+	print("ENE "+str(n))
+	infoHDD = getData("df -m |grep ^/dev",n)
+	info = infoHDD.split(" ")
+	data.append(addMemoryHDD_2(info))
+
 
 writeReport(data)
-
-

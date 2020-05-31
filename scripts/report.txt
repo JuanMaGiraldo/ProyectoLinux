@@ -1,96 +1,162 @@
-Información de Disco Duro
+Información general de Memoria RAM
 Se muestra Información del disco duro
 Magnitud
 Valor en MB
 Bar
 Espacio Total
-16020
+985
 Espacio en Uso
-3118
+695
 Espacio Libre
-12360
+152
 fin
-Información de consumo de recursos del proceso Xorg
-Se muestra información del proceso con PID 1244
+Información de consumo de recursos del proceso top
+Se muestra información del proceso con PID 3667
 Recurso
-Valor
+Valor en kb
 Pie
 Memoria Virtual
-4000088
+46732
 Memoria RAM
-180856
+4044
 Memoria Compartida
-134292
+3400
 Uso de CPU
-5,9
+5,3
 Espacio en DD
-1,1
+0,4
 fin
-Información de consumo de recursos del proceso code
-Se muestra información del proceso con PID 2386
+Información de consumo de recursos del proceso systemd
+Se muestra información del proceso con PID 1
 Recurso
-Valor
+Valor en kb
 Pie
 Memoria Virtual
-12,137g
+160072
 Memoria RAM
-325116
+4536
 Memoria Compartida
-102376
+2768
 Uso de CPU
-5,9
+0,0
 Espacio en DD
-2,0
+0,4
 fin
-Información de consumo de recursos del proceso anydesk
-Se muestra información del proceso con PID 3909
+Información de consumo de recursos del proceso cinnamon
+Se muestra información del proceso con PID 1233
 Recurso
-Valor
+Valor en kb
 Pie
 Memoria Virtual
-2911368
+2619560
 Memoria RAM
-234976
+166164
 Memoria Compartida
-62884
+23592
 Uso de CPU
-6,2
+28,6
 Espacio en DD
-1,4
+16,5
 fin
-Información de Memoria RAM
+Información detallada de Memoria RAM
 Se muestra Información de la memoria RAM
 Magnitud
 Valor en KB
 Area
 SwapFree:
-4882428
+584244
 SwapTotal:
-4882428
+871988
 Mlocked:
-80
+16
 Unevictable:
-80
+16
 Inactive(file):
-1235464
+80744
 Active(file):
-866344
+92140
 Inactive(anon):
-337284
+311612
 Active(anon):
-2632040
+292636
 Inactive:
-1572748
+392356
 Active:
-3498384
+384776
 SwapCached:
-0
+19464
 Cached:
-2107340
+148828
 Buffers:
-233156
+20104
 MemAvailable:
-12706996
+155760
 MemFree:
-10796656
+92996
+fin
+Información general del Disco Duro
+Se muestra infromación del Disco Duro
+Magnitud
+Valor en MB
+Bar
+Tamaño total
+19975
+Usado
+8714
+Disponible10325
+fin
+Información detallada del Disco Duro
+Se muestra información de /dev/sda1
+Magnitud
+Valor en MB
+Area
+Tamaño
+18013
+Usado
+8394
+Disponible8682
+fin
+Información detallada del Disco Duro
+Se muestra información de /dev/loop0
+Magnitud
+Valor en MB
+Area
+Tamaño
+161
+Usado
+161
+Disponible0
+fin
+Información detallada del Disco Duro
+Se muestra información de /dev/loop1
+Magnitud
+Valor en MB
+Area
+Tamaño
+55
+Usado
+55
+Disponible0
+fin
+Información detallada del Disco Duro
+Se muestra información de /dev/loop3
+Magnitud
+Valor en MB
+Area
+Tamaño
+8
+Usado
+8
+Disponible0
+fin
+Información detallada del Disco Duro
+Se muestra información de /dev/loop2
+Magnitud
+Valor en MB
+Area
+Tamaño
+63
+Usado
+63
+Disponible0
 fin
