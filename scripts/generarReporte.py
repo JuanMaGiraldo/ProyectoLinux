@@ -35,7 +35,7 @@ def getData(comand, n):
 def addMemoryRAM(info):
 	memory = []
 	memory.append("Información general de Memoria RAM\n")
-	memory.append("Se muestra Información del disco duro\n")
+	memory.append("Se muestra información de la memora ram\n")
 	memory.append("Magnitud\n")
 	memory.append("Valor en MB\n")
 	memory.append("Bar\n")
@@ -52,7 +52,7 @@ def addMemoryRAM(info):
 def addMemoryRAM_2(info):
 	memory = []
 	memory.append("Información detallada de Memoria RAM\n")
-	memory.append("Se muestra Información de la memoria RAM\n")
+	memory.append("Se muestra información detallada de la memoria RAM\n")
 	memory.append("Magnitud\n")
 	memory.append("Valor en KB\n")
 	memory.append("Area\n")
@@ -73,7 +73,7 @@ def addMemoryHDD(info):
 	memory.append(str(info[1])+"\n")
 	memory.append("Usado\n")
 	memory.append(str(info[2])+"\n")
-	memory.append("Disponible")
+	memory.append("Disponible\n")
 	memory.append(str(info[3])+"\n")
 	memory.append("fin\n")
 	return memory
@@ -84,7 +84,7 @@ def addMemoryHDD_2(info):
 	memory.append("Se muestra información de "+str(info[0]+"\n"))
 	memory.append("Magnitud\n")
 	memory.append("Valor en MB\n")
-	memory.append("Area\n")
+	memory.append("Bar\n")
 	memory.append("Tamaño\n")
 	memory.append(str(info[1])+"\n")
 	memory.append("Usado\n")
@@ -115,19 +115,37 @@ def addProcess(info):
 	process.append("fin\n")
 	return process	
 
+def createPage(info):
+	f=open("page.txt", "r")
+	page = f.read()
+	f.close()
+	page += info +");"
+	page += "</script>"
+	page += "</html>"
+	pageFile = open("../page/index.html","w", encoding="utf-8")
+	pageFile.write(page)
+	pageFile.close()
+
 def writeReport(data):
-	report = open("./report.txt","w", encoding="utf-8")
+	report = open("../page/report.txt","w", encoding="utf-8")
 	i=0
+	infoText = ""
 	while(i<len(data)):
 		for line in data[i]:
 			report.write(line)
+			line = line.replace("\n","")
+			infoText += "\""+line+"\\n\"+"
 		i=i+1
 	report.close()
+	createPage(infoText[:-1])
+
+
 
 
 def escape_ansi(line):
     ansi_escape = re.compile(r'(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]')
     return ansi_escape.sub('', line)
+
 
 
 #-------------------------------------------------------------------------#
@@ -160,7 +178,7 @@ while (n>0):
 data.append(addMemoryRAM_2(info2))
 
 
-n=3
+n=5
 while (n>0):
         infoPro = getData("top -n1", n+6)
         infoPro = escape_ansi(infoPro)

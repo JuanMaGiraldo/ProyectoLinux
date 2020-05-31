@@ -26,5 +26,6 @@ def ejecutarComando ( comando ):
 
 ejecutarComando("cd scripts && ./generarReporte.py")
 ejecutarComando("cd page && wkhtmltopdf index.html reporte.pdf")
+
 filename="page/reporte.pdf"
 plot = subprocess.Popen("evince '%s'" % filename, shell=True)
