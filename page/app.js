@@ -135,7 +135,7 @@ function createTable(name, value, dataTable,div){
     th.scope = "row";    
     tr.appendChild(th);
     tr.appendChild(createTd(row[0]));
-    tr.appendChild(createTd(row[1]));
+    tr.appendChild(createTd(formatNumber(row[1]),true));
     tbdy.appendChild(tr);
     i++;
   }
@@ -144,8 +144,16 @@ function createTable(name, value, dataTable,div){
   div.appendChild(table);
 } 
 
-function createTd(value){
+function formatNumber(number){
+  number = String(number).replace(/(.)(?=(\d{3})+$)/g,'$1.');
+  return number;
+}
+
+function createTd(value,isRight = false){
   td = createElement("td");
+  if(isRight){
+    td.className += " left";
+  }
   td.innerHTML = value;
   return td;
 }

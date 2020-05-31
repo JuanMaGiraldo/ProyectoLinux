@@ -113,8 +113,7 @@ def addProcess(info):
 	process.append("Espacio en DD\n")
 	process.append(str(info[9])+"\n")
 	process.append("fin\n")
-	return process
-
+	return process	
 
 def writeReport(data):
 	report = open("./report.txt","w", encoding="utf-8")
@@ -130,10 +129,10 @@ def escape_ansi(line):
     ansi_escape = re.compile(r'(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]')
     return ansi_escape.sub('', line)
 
+
 #-------------------------------------------------------------------------#
 
 data = []
-
 infoMem = getData("free -m", 1)
 info = infoMem.split(" ")
 data.append(addMemoryRAM(info))
@@ -166,7 +165,6 @@ data.append(addMemoryHDD(info))
 
 
 for n in range(0, 5):
-	print("ENE "+str(n))
 	infoHDD = getData("df -m |grep ^/dev",n)
 	info = infoHDD.split(" ")
 	data.append(addMemoryHDD_2(info))
