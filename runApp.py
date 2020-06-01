@@ -11,7 +11,6 @@
 #Diego Armando
 #Licencia GNU
 #======================================
-
 import subprocess
 
 def ejecutarComando ( comando ):
@@ -25,7 +24,7 @@ def ejecutarComando ( comando ):
 	return [ p.stdout.read().decode(), p.stderr.read().decode() ]
 
 ejecutarComando("cd scripts && ./generarReporte.py")
-ejecutarComando("cd page && wkhtmltopdf index.html reporte.pdf")
-
+ejecutarComando("cd page && wkhtmltopdf --javascript-delay 5000 index.html reporte.pdf")
 filename="page/reporte.pdf"
 plot = subprocess.Popen("evince '%s'" % filename, shell=True)
+ejecutarComando("firefox page/index.html ")

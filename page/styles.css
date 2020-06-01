@@ -4,6 +4,15 @@
     display: block;
 }
 
+#info_user{
+    align-items: center;
+    border: 1px solid black;
+    width: 50%;
+    text-align: center;
+    border-radius: 4px;    
+    margin: 0 auto;
+    margin-top: 10px;
+}
 .div-center{
     margin:0px auto;
 }
@@ -12,6 +21,7 @@
     width: 1000px !important;
     margin-top: 20px;
     border-color: rgb(23, 23, 24) !important;
+    margin-bottom: 10px;
 }
 
 .div-table {

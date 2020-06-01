@@ -1,7 +1,8 @@
 
 data = null;
-function loadInfo(text){
-  data = text.split("\n");
+function loadInfo(infoUser,infoPc){
+  document.getElementById("info_user").innerHTML = infoUser
+  data = infoPc.split("\n");
   removeItem(data,"");
   removeItem(data,"\n");
    // Load the Visualization API and the corechart package.

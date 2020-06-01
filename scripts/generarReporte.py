@@ -18,8 +18,8 @@ import subprocess
 import re
 
 
-def getData(comand, n):
-	subProcess = subprocess.Popen (comand,
+def getData(command, n):
+	subProcess = subprocess.Popen (command,
 			stdout=subprocess.PIPE,
 			stderr=subprocess.PIPE,
 			shell= True
@@ -30,12 +30,19 @@ def getData(comand, n):
 	info = re.sub (" +", " ", info)
 	return info
 
+def getInfoUser():
+    infoUser = "\""
+    infoUser += ("IP: " + getData("hostname -I",0)).replace("\n","\t-\t")
+    infoUser += ("Usuario: " + getData("whoami",0)).replace("\n","\t-\t")
+    infoUser += ("Arquitectura: " + getData("uname -m",0)).replace("\n","")
+    infoUser += "\""
+    return infoUser
 
 
 def addMemoryRAM(info):
 	memory = []
 	memory.append("Información general de Memoria RAM\n")
-	memory.append("Se muestra información de la memora ram\n")
+	memory.append("La memoria ram es importante por que es dónde se almacenan datos o instrucciones a usar, tener el espacio en uso casi igual al espacio total significa que algunas funciones del computador se volverán lentas y deberá ó cerrar aplicaciones ó mejorar el espacio de esta.\n")
 	memory.append("Magnitud\n")
 	memory.append("Valor en MB\n")
 	memory.append("Bar\n")
@@ -55,7 +62,7 @@ def addMemoryRAM_2(info):
 	memory.append("Se muestra información detallada de la memoria RAM\n")
 	memory.append("Magnitud\n")
 	memory.append("Valor en KB\n")
-	memory.append("Area\n")
+	memory.append("Pie\n")
 	for i in info:
 		memory.append(str(i)+"\n")
 	memory.append("fin\n")
@@ -65,8 +72,7 @@ def addMemoryRAM_2(info):
 def addMemoryHDD(info):
 	memory =[]
 	memory.append("Información general del Disco Duro\n")
-	memory.append("Se muestra infromación del Disco Duro\n")
-	memory.append("Magnitud\n")
+	memory.append("El disco duro es una unidad que nos permite guardar información sin perderlos al apagar el equipo, tener la barra de usado casi igual al tamaño total siginifica que el disco se está quedando sin espacio y prontamente dejará de guardar información.\n")	memory.append("Magnitud\n")
 	memory.append("Valor en MB\n")
 	memory.append("Bar\n")
 	memory.append("Tamaño total\n")
@@ -115,18 +121,18 @@ def addProcess(info):
 	process.append("fin\n")
 	return process	
 
-def createPage(info):
+def createPage(info_user,info):
 	f=open("page.txt", "r")
 	page = f.read()
 	f.close()
-	page += info +");"
+	page += info_user +"," + info +");"
 	page += "</script>"
 	page += "</html>"
 	pageFile = open("../page/index.html","w", encoding="utf-8")
 	pageFile.write(page)
 	pageFile.close()
 
-def writeReport(data):
+def writeReport(info_user,data):
 	report = open("../page/report.txt","w", encoding="utf-8")
 	i=0
 	infoText = ""
@@ -134,16 +140,16 @@ def writeReport(data):
 		for line in data[i]:
 			report.write(line)
 			line = line.replace("\n","")
-			infoText += "\""+line+"\\n\"+"
+			infoText += "\""+line+"\\n\"+" #Concatenar la informacion con '+' y poner saltos de linea al final
 		i=i+1
 	report.close()
-	createPage(infoText[:-1])
+	createPage(info_user,infoText[:-1])
 
 
 
 
 def escape_ansi(line):
-    ansi_escape = re.compile(r'(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]')
+    ansi_escape = re.compile(r'(?:\x1B[@-_]|[\x80-\x9F])[0-?]*[ -/]*[@-~]')	
     return ansi_escape.sub('', line)
 
 
@@ -182,11 +188,13 @@ n=5
 while (n>0):
         infoPro = getData("top -n1", n+6)
         infoPro = escape_ansi(infoPro)
+        infoPro = infoPro.replace('\r', '').replace('\x1b(B', '')
         info = infoPro.split(" ")
-        info.pop(0)
+        if len(info) == 14:
+            info.pop(0)
         info.pop(len(info) -1)
-        data.append(addProcess(info))
+        data.append(addProcess(info))        
         n = n-1
-
-
-writeReport(data)
+		
+info_user = getInfoUser()
+writeReport(info_user,data)
